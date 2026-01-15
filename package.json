@@ -1,14 +1,10 @@
 {
-  "name": "test",
+  "name": "autopilot-test-framework",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Autopilot based Flutter automation framework",
   "scripts": {
     "test": "mocha specs/**/*.spec.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "type": "commonjs",
   "dependencies": {
     "axios": "^1.13.2",
