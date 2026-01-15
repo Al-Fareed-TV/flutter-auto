@@ -1,31 +1,50 @@
-const DriverContext = require("../../lib/actions");
+class LoginPage {
+  constructor(driver) {
+    this.driver = driver;
+  }
 
-class Login{
-    ctx = new DriverContext()
-    constructor(){   
-    }
+  async openRegistration() {
+    await this.driver.tap({ text: 'Register' });
+  }
 
-    clickOnRegister(){
-        this.ctx.tap({text:"Register"})
-    }
+  async enterName(name) {
+    const fields = await this.driver.editables();
+    await this.driver.tap({
+      x: fields[0].position.left + 10,
+      y: fields[0].position.top + 10
+    });
+    await this.driver.type(name);
+    await this.driver.hideKeyboard();
+  }
 
-    enterName(name){
-        this.ctx.typeText({text:name})
-    }
+  async enterEmail(email) {
+    const fields = await this.driver.editables();
+    await this.driver.tap({
+      x: fields[1].position.left + 10,
+      y: fields[1].position.top + 10
+    });
+    await this.driver.type(email);
+    await this.driver.hideKeyboard();
+  }
 
-    enterEmail(email){
-        this.ctx.typeText({text:email})
-    }
+  async enterPhone(phone) {
+    const fields = await this.driver.editables();
+    await this.driver.tap({
+      x: fields[2].position.left + 10,
+      y: fields[2].position.top + 10
+    });
+    await this.driver.type(phone);
+    await this.driver.hideKeyboard();
+  }
 
-    enterPhone(phone){
-        this.ctx.typeText({text:phone})
-    }
-
-    clickOnRegisterButton(){
-        this.ctx.tap({text:"Register"})
-    }
-
-    verifyHomeScreen(){
-        this.ctx.tap({text:"Register"})
-    }
+  async submit() {
+    const buttons = await this.driver.texts({ text: 'Register' });
+    const btn = buttons[buttons.length - 1];
+    await this.driver.tap({
+      x: btn.position.left + 10,
+      y: btn.position.top + 10
+    });
+  }
 }
+
+module.exports = LoginPage;
