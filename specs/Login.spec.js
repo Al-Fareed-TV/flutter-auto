@@ -1,6 +1,7 @@
 const { expect } = require('chai');
 const createDriver = require('../lib/actions');
 const LoginPage = require('../src/pages/Login.page');
+const { faker } = require('@faker-js/faker');
 
 describe('Login', function () {
     this.timeout(30000);
@@ -19,9 +20,9 @@ describe('Login', function () {
 
     it('user should be able to register', async () => {
         await login.openRegistration();
-        await login.enterName('Test User');
-        await login.enterEmail('test@example.com');
-        await login.enterPhone('1234567890');
+        await login.enterName(faker.person.fullName());
+        await login.enterEmail(faker.internet.email());
+        await login.enterPhone(faker.phone.number());
         await login.submit();
 
         // const welcome = await driver.waitForText('Welcome');
