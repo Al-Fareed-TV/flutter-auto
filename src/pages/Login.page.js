@@ -45,6 +45,15 @@ class LoginPage {
       y: btn.position.top + 10
     });
   }
+
+  async logout() {
+    const buttons = await this.driver.texts({ text: 'Logout' });
+    const btn = buttons[buttons.length - 1];
+    await this.driver.tap({
+      x: btn.position.left + 10,
+      y: btn.position.top + 10
+    });
+  }
 }
 
 module.exports = LoginPage;
