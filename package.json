@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Autopilot based Flutter automation framework",
   "scripts": {
-    "test": "mocha specs/**/*.spec.js"
+    "test": "mocha tests/specs/**/*.spec.js --no-parallel --jobs 1"
   },
   "type": "commonjs",
   "dependencies": {

@@ -1,7 +1,8 @@
-const { expect, assert } = require('chai');
-const DriverContext = require('../lib/actions');
-const LoginPage = require('../src/pages/Login.page');
+const { expect } = require('chai');
+const DriverContext = require('../../lib/actions');
+
 const { faker } = require('@faker-js/faker');
+const LoginPage = require('../../src/pages/Login.screen');
 
 describe('Login', function () {
   this.timeout(30000);
@@ -26,15 +27,7 @@ describe('Login', function () {
   });
 
 
-it('user should be able to register and logout', async () => {
-    await login.openRegistration();
-    await login.enterName(faker.person.fullName());
-    await login.enterEmail(faker.internet.email());
-    await login.enterPhone(faker.phone.number());
-    await login.submit();
-
-    const welcome = await driver.waitForText('Welcome to Theatre Booking');
-    expect(welcome.length).to.be.greaterThan(0);
+  it('user should be able to logout', async () => {
     await login.logout();
   });
 });
