@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Autopilot based Flutter automation framework",
   "scripts": {
-    "test": "mocha tests/specs/**/*.spec.js --no-parallel --jobs 1"
+    "test": "mocha tests/specs/**/*.spec.js --no-parallel",
+    "testBooking": "mocha tests/specs/BookSeats.spec.js"
   },
   "type": "commonjs",
   "dependencies": {

@@ -18,6 +18,10 @@ describe('Login', function () {
     await bookSeats.tapBookSeatsButton();
     await bookSeats.selectSeats();
     await bookSeats.confirmBooking();
+    await bookSeats.enterName('John Doe');
+    await bookSeats.tapOnConfirmButton();
+    await bookSeats.tapOkButton();
+    await bookSeats.tapBackButton();
   });
 
 });
